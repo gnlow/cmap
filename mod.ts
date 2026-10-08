@@ -7,8 +7,7 @@ export class Cmap {
         const a = this.stops[lowerIndex]
         const b = this.stops[lowerIndex+1] ?? a
 
-        const p = (pos-a.pos)/(b.pos-a.pos) || 0
-        console.log({ a, b, p })
+        const p = a==b ? 0 : (pos-a.pos)/(b.pos-a.pos)
         return a.rgb.map((v, i) => b.rgb[i]*p + v*(1-p))
     }
 }
