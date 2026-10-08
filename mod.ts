@@ -23,6 +23,9 @@ export class Cmap {
     clamp() {
         return this.local(pos => Math.max(0, Math.min(pos, 1)))
     }
+    range(a: number, b: number) {
+        return this.local(pos => (b-a)*pos+a)
+    }
 }
 
 export const globe = Cmap.fromStops([
